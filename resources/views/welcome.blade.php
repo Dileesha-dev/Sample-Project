@@ -40,14 +40,19 @@
     <body>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-text ms-auto">
-                LOGIN
-              </a>
+              <div class="ms-auto py-3">
+                <a class="navbar-text m-3" href="{{ route('login') }}">
+                    LOGIN
+                  </a>
+                  <a class="navbar-text m-3" href="{{ route('register') }}">
+                    REGISTER
+                  </a>
+              </div>
             </div>
         </nav>
         <div class="wrapper container h-75">
             <h1 class="brandName m-5">{{config('app.name')}}</h1>
-            <a>
+            <a href="{{ route('login') }}">
                 LOGIN
             </a>
         </div>
