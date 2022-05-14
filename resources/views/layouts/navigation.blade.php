@@ -34,7 +34,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile')" onclick="event.preventDefault();">
+                        <x-dropdown-link :href="route('profile.show')">
                                 {{ __('My Profile') }}
                         </x-dropdown-link>
                         <!-- Authentication -->

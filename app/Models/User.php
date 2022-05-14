@@ -22,6 +22,12 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+    
+    protected $editable = [
+        'name',
+        'email',
+        'password',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.

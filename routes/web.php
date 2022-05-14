@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,10 @@ Route::middleware(['auth'])->group(function(){
     })->name('dashboard');
 
     Route::get('/profile', function() {
-        return view('dashboard');
-    })->name('profile');
+        return view('profile');
+    })->name('profile.show');
+    
+    Route::put('/profile', [UserController::class, 'update'])->name('profile.update');
 });
 
 
