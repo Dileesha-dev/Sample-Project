@@ -86,8 +86,6 @@ class CompanyController extends Controller
     {
         $company = Company::findOrFail($companyId);
         return view('company.create', ['company' => $company]);
-        // Log::info($company);
-        return back();
     }
 
     /**
