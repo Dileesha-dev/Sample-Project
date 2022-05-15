@@ -34,7 +34,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="POST" action="@isset($company) {{ route('company.update', ['id' => $company->id]) }} @else {{ route('company.store') }} @endisset"  enctype="multipart/form-data">
+                    <form method="POST" action="@isset($company) {{ route('company.update', ['company' => $company->id]) }} @else {{ route('company.store') }} @endisset"  enctype="multipart/form-data">
                         @csrf
                         @isset($company)
                             @method('put')
@@ -95,6 +95,8 @@
                                 <input type="file" name="covers[]" id="covers" class="form-control w-50" multiple>
                             </div>
                         </div>
+                        <button id="mainFormSubmit" type="submit" hidden></button>
+                    </form>
                         @isset($company)
                         <div class="row">
                             <div class="col-sm-2"></div>
@@ -102,10 +104,10 @@
                                 @foreach ($company->covers as $cover)
                                     <div class="text-center" style="position: relative;">
                                         <img src="@if ($cover->cover_url) {{$cover->cover_url}} @endif" style="max-height: 100px; opacity: 0.5" />
-                                        <form action="{{ route('company.coverRemove', ['id' => $company->id, 'coverId' => $cover->id]) }}" method="post">
+                                        <form action="{{ route('company.coverRemove', ['company' => $company->id, 'coverId' => $cover->id]) }}" method="post">
                                             @csrf
                                             @method('delete')
-                                            <button class="mt-2" style="cursor: pointer; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%)">remove</button> 
+                                            <button type="submit" class="mt-2" style="cursor: pointer; position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%)">remove</button> 
                                         </form>
                                     </div>
                                 @endforeach
@@ -116,10 +118,9 @@
                         <div class="row">
                             <div class="col-sm-2"></div>
                             <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary bg-primary btn-lg">Save</button>
+                                <button onclick="document.getElementById('mainFormSubmit').click()" class="btn btn-primary bg-primary btn-lg">Save</button>
                             </div>
                         </div>
-                      </form>
                 </div>
             </div>
         </div>

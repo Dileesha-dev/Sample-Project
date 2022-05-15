@@ -34,8 +34,8 @@
                                             <p class="card-text my-1">website: <a href="{{$company->website}}" style="color:  #0000EE">{{$company->website}}</a></p>
                                         </div>
                                         <div class="col-sm-2 text-center">
-                                            <a class="btn btn-info text-white m-3" href="{{ route('company.edit', ['id' => $company->id]) }}">Edit</a>
-                                            <form action="{{ route('company.delete', ['id' => $company->id]) }}" method="post">@csrf @method('delete')<button class="btn btn-danger">Delete</button></form>
+                                            <a class="btn btn-info text-white m-3" href="{{ route('company.edit', ['company' => $company->id]) }}">Edit</a>
+                                            <form action="{{ route('company.delete', ['company' => $company->id]) }}" method="post">@csrf @method('delete')<button class="btn btn-danger">Delete</button></form>
                                         </div>
                                     </div>
                                 </div>

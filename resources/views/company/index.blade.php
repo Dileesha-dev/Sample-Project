@@ -34,14 +34,14 @@
                                     <tr>
                                         <td>{{$company->id}}</td>
                                         <td><image src="{{$company->logo_url}}" style="height: 100px; width: 100px" /></td>
-                                        <td><a style="cursor: pointer; color:#0000EE" href="{{ route('company.show', ['id' => $company->id]) }}">{{$company->name}}</a></td>
+                                        <td><a style="cursor: pointer; color:#0000EE" href="{{ route('company.show', ['company' => $company->id]) }}">{{$company->name}}</a></td>
                                         <td>{{$company->email}}</td>
                                         <td>{{$company->telephone}}</td>
                                         <td>{{$company->website}}</td>
                                         <td>
                                             <div class="flex" style="justify-content: space-evenly">
-                                                <a class="btn btn-info text-white" href="{{ route('company.edit', ['id' => $company->id]) }}">Edit</a>
-                                                <form action="{{ route('company.delete', ['id' => $company->id]) }}" method="post">@csrf @method('delete')<button class="btn btn-danger">Delete</button></form>
+                                                <a class="btn btn-info text-white" href="{{ route('company.edit', ['company' => $company->id]) }}">Edit</a>
+                                                <form action="{{ route('company.delete', ['company' => $company->id]) }}" method="post">@csrf @method('delete')<button class="btn btn-danger">Delete</button></form>
                                             </div>
                                         </td>
                                     </tr>   
