@@ -27,11 +27,15 @@
                             <div class="col-sm-10">
                                 <div class="card-body text-left">
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-10">
                                             <p class="card-text my-1">Name: {{$company->name}}</p>
                                             <p class="card-text my-1">email: {{$company->email}}</p>
                                             <p class="card-text my-1">telephone: {{$company->telephone}}</p>
                                             <p class="card-text my-1">website: <a href="{{$company->website}}" style="color:  #0000EE">{{$company->website}}</a></p>
+                                        </div>
+                                        <div class="col-sm-2 text-center">
+                                            <a class="btn btn-info text-white m-3" href="{{ route('company.edit', ['id' => $company->id]) }}">Edit</a>
+                                            <form action="{{ route('company.delete', ['id' => $company->id]) }}" method="post">@csrf @method('delete')<button class="btn btn-danger">Delete</button></form>
                                         </div>
                                     </div>
                                 </div>

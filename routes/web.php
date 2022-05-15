@@ -36,6 +36,10 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/companies/create', 'create')->name('company.create');
         Route::post('/companies/store', 'store')->name('company.store');
         Route::get('/companies/{id}', 'show')->name('company.show');
+        Route::get('/companies/{id}/edit', 'edit')->name('company.edit');
+        Route::put('/companies/{id}/update', 'update')->name('company.update');
+        Route::delete('/companies/{id}/coverRemove/{coverId}', 'coverRemove')->name('company.coverRemove');
+        Route::delete('/companies/{id}/delete', 'destroy')->name('company.delete');
     });
 });
 

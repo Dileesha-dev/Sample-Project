@@ -39,8 +39,10 @@
                                         <td>{{$company->telephone}}</td>
                                         <td>{{$company->website}}</td>
                                         <td>
-                                            <button class="btn btn-info text-white mr-2">Edit</button>
-                                            <button class="btn btn-danger">Delete</button>
+                                            <div class="flex" style="justify-content: space-evenly">
+                                                <a class="btn btn-info text-white" href="{{ route('company.edit', ['id' => $company->id]) }}">Edit</a>
+                                                <form action="{{ route('company.delete', ['id' => $company->id]) }}" method="post">@csrf @method('delete')<button class="btn btn-danger">Delete</button></form>
+                                            </div>
                                         </td>
                                     </tr>   
                                 @endforeach

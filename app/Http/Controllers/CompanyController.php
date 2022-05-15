@@ -61,7 +61,7 @@ class CompanyController extends Controller
                 ]);
             }
         }
-        return back()->with('success', 'Company Successfully Updated!');
+        return back()->with('success', 'Company Successfully Created!');
     }
 
     /**
@@ -82,9 +82,12 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function edit(Company $company)
+    public function edit($companyId)
     {
-        //
+        $company = Company::findOrFail($companyId);
+        return view('company.create', ['company' => $company]);
+        // Log::info($company);
+        return back();
     }
 
     /**
@@ -94,9 +97,31 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Company $company)
+    public function update(Request $request, $companyId)
     {
-        //
+        $company = Company::findOrFail($companyId);
+        $logoImageData = ($request->hasFile('logo') ? $this->companyRepo->uploadImage($request, Company::IS_LOGO) : null);
+        $data = $request->except('logo', '_token');
+        if($logoImageData) $data += ['logo_url' => $logoImageData['logo_url'], 'logo_path' => $logoImageData['logo_path'], 'logo_disk' => $logoImageData['logo_disk']];
+        $company->update($data);
+        $coversImageData = ($request->hasFile('covers') ?  $this->companyRepo->uploadImage($request, Company::IS_COVER) : null);
+        if($coversImageData){
+            foreach ($coversImageData as $coversImage) {
+                CompanyCover::create([
+                    'company_id' => $company->id,
+                    'cover_url' => $coversImage['cover_url'],
+                    'cover_path' => $coversImage['cover_path'],
+                    'cover_disk' => $coversImage['cover_disk']
+                ]);
+            }
+        }
+        return back()->with('success', 'Company Successfully Updated!');
+    }
+
+    public function coverRemove($companyId, $coverId){
+        $cover = CompanyCover::findOrFail($coverId);
+        $cover->delete();
+        return back();
     }
 
     /**
@@ -105,8 +130,10 @@ class CompanyController extends Controller
      * @param  \App\Models\Company  $company
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Company $company)
+    public function destroy($companyId)
     {
-        //
+        $company = Company::findOrFail($companyId);
+        $company->delete();
+        return redirect(route('company.index'))->with('success', 'Company Successfully Deleted!');
     }
 }
