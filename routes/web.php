@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +24,19 @@ Route::middleware(['auth'])->group(function(){
         return view('dashboard');
     })->name('dashboard');
 
+    //profile
     Route::get('/profile', function() {
         return view('profile');
     })->name('profile.show');
-    
     Route::put('/profile', [UserController::class, 'update'])->name('profile.update');
+
+    //company
+    Route::controller(CompanyController::class)->group(function(){
+        Route::get('/companies', 'index')->name('company.index');
+        Route::get('/companies/create', 'create')->name('company.create');
+        Route::post('/companies/store', 'store')->name('company.store');
+        Route::get('/companies/{id}', 'show')->name('company.show');
+    });
 });
 
 

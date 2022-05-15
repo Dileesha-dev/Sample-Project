@@ -5,7 +5,7 @@
                 {{ __('Dashboard') }}
             </h2>
             <div>
-                <a class="nav-item">Companies</a>
+                <a class="nav-item" href="{{ route('company.index') }}">Companies</a>
                 <a class="nav-item">Employees</a>
             </div>
         </div>
