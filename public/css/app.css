@@ -1240,6 +1240,19 @@ select {
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
 }
+
+.nav-item{
+  margin-left: 40px;
+  cursor: pointer;
+  font-weight: 200;
+  letter-spacing: 0.6px;
+}
+
+.nav-item:hover, .nav-item:focus{
+  color: #2563eb;
+  font-weight: 600;
+}
+
 @media (prefers-color-scheme: dark) {
 
   .dark\:border-gray-700 {
