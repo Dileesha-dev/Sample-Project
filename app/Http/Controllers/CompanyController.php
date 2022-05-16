@@ -24,7 +24,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return view('company.index', ['companies' => Company::paginate(3)]);
+        return view('company.index', ['companies' => Company::orderByDesc('created_at')->paginate(3)]);
     }
 
     /**

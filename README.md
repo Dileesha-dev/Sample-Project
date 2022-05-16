@@ -6,7 +6,8 @@ Author: Dileesha Nayanajth (github: Dileesha-dev)
 
 Migrate and seed the database
 ```
-php artisan db:refresh
+php artisan migrate:refresh
+php artisan db:seed
 ```
 
 Install composer packages

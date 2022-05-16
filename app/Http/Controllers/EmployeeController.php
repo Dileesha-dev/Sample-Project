@@ -23,7 +23,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('employee.index', ['employees' => Employee::paginate(3)]);
+        return view('employee.index', ['employees' => Employee::orderByDesc('created_at')->paginate(3)]);
     }
 
     /**
