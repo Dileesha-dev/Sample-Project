@@ -1,0 +1,178 @@
+name: Authentication
+description: |-
+
+  API endpoints for managing authentication
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/register
+    metadata:
+      title: 'Register the user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The full name of the  user.'
+        required: true
+        example: 'Mike Tyson'
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The email of the  user.'
+        required: true
+        example: testuser@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password of the  user.'
+        required: true
+        example: secret
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The password confirmation of the  user.'
+        required: true
+        example: secret
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+           "user": {
+               "id": 2,
+               "name": "Jack Sparrow",
+               "email": "jack@sparrow.ship",
+               "email_verified_at": null,
+               "is_admin": 0,
+                "created_at": "2022-05-16T05:12:01.000000Z",
+                "updated_at": "2022-05-16T05:12:01.000000Z"
+          },
+           "token": "4|UuwRyt2CMfNkxdr44Y1wuORDzz70HhuFvblR67uC",
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      title: 'Log in the user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the  user.'
+        required: true
+        example: testuser@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password of the  user.'
+        required: true
+        example: secret
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+           "user": {
+               "id": 2,
+               "name": "Jack Sparrow",
+               "email": "jack@sparrow.ship",
+               "email_verified_at": null,
+               "is_admin": 0,
+                "created_at": "2022-05-16T05:12:01.000000Z",
+                "updated_at": "2022-05-16T05:12:01.000000Z"
+          },
+           "token": "4|UuwRyt2CMfNkxdr44Y1wuORDzz70HhuFvblR67uC",
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/profile
+    metadata:
+      title: 'Profile of the user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+           "payload": {
+               "id": 2,
+               "name": "Jack Sparrow",
+               "email": "jack@sparrow.ship",
+               "email_verified_at": null,
+               "is_admin": 0,
+                "created_at": "2022-05-16T05:12:01.000000Z",
+                "updated_at": "2022-05-16T05:12:01.000000Z"
+               },
+               "message": "Profile info"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/logout
+    metadata:
+      title: 'Logout the user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+           "message": "Logged Out"
+          }
+        headers: []
+        description: '200'
+    responseFields: []

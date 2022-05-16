@@ -1,0 +1,296 @@
+name: Companies
+description: |-
+
+  API endpoints for managing companies
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/companies
+    metadata:
+      title: 'List of companies.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+
+           "payload": {
+               "current_page": 1,
+               "data": [
+                   {
+                       "id": 2,
+                       "name": "Thiel PLC",
+                       "email": "larkin.shirley@yahoo.com",
+                       "telephone": "(617) 886-4519",
+                       "logo_url": null,
+                       "logo_path": null,
+                       "logo_disk": null,
+                       "website": "http://www.koss.info/at-incidunt-consequatur-laboriosam",
+                       "created_at": null,
+                       "updated_at": null,
+                       "deleted_at": null
+                   },
+                   {
+                       "id": 3,
+                       "name": "O'Keefe-Gerlach",
+                       "email": "rosenbaum.danielle@deckow.com",
+                       "telephone": "+13463833094",
+                       "logo_url": null,
+                       "logo_path": null,
+                       "logo_disk": null,
+                       "website": "https://schowalter.info/minima-reprehenderit-perspiciatis-et-dolorem.html",
+                       "created_at": null,
+                       "updated_at": null,
+                       "deleted_at": null
+                   },
+                   {
+                       "id": 4,
+                       "name": "Rutherford, Kozey and Daugherty",
+                       "email": "kuhic.juanita@bruen.biz",
+                       "telephone": "+1 (903) 845-4185",
+                       "logo_url": null,
+                       "logo_path": null,
+                       "logo_disk": null,
+                       "website": "http://www.reichel.com/aspernatur-accusamus-eligendi-consequatur-distinctio-vero-corrupti.html",
+                       "created_at": null,
+                       "updated_at": null,
+                       "deleted_at": null
+                   },
+                   {
+                       "id": 5,
+                       "name": "Romaguera, Heidenreich and Quitzon",
+                       "email": "genevieve.keeling@jerde.com",
+                       "telephone": "+14324240878",
+                       "logo_url": null,
+                       "logo_path": null,
+                       "logo_disk": null,
+                       "website": "http://schulist.net/",
+                       "created_at": null,
+                       "updated_at": null,
+                       "deleted_at": null
+                   },
+                   {
+                       "id": 6,
+                       "name": "Crona Group",
+                       "email": "rosa74@dach.biz",
+                       "telephone": "(714) 591-7737",
+                       "logo_url": null,
+                       "logo_path": null,
+                       "logo_disk": null,
+                       "website": "http://www.barrows.com/omnis-nostrum-tempora-velit-voluptatem-illo-at-ratione-quis.html",
+                       "created_at": null,
+                       "updated_at": null,
+                       "deleted_at": null
+                   }
+               ],
+               "first_page_url": "http://127.0.0.1:8000/api/v1/companies?page=1",
+               "from": 1,
+               "last_page": 2,
+               "last_page_url": "http://127.0.0.1:8000/api/v1/companies?page=2",
+               "links": [
+                   {
+                       "url": null,
+                       "label": "&laquo; Previous",
+                       "active": false
+                   },
+                   {
+                       "url": "http://127.0.0.1:8000/api/v1/companies?page=1",
+                       "label": "1",
+                       "active": true
+                   },
+                   {
+                       "url": "http://127.0.0.1:8000/api/v1/companies?page=2",
+                       "label": "2",
+                       "active": false
+                   },
+                   {
+                       "url": "http://127.0.0.1:8000/api/v1/companies?page=2",
+                       "label": "Next &raquo;",
+                       "active": false
+                   }
+               ],
+               "next_page_url": "http://127.0.0.1:8000/api/v1/companies?page=2",
+               "path": "http://127.0.0.1:8000/api/v1/companies",
+               "per_page": 5,
+               "prev_page_url": null,
+               "to": 5,
+               "total": 6
+           },
+           "message": "All Companies"
+           }
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/companies
+    metadata:
+      title: 'Create Company.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: est
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: uhrrumtwhymjtdlkqooxtkjuzdnddwirnujwhykjcregyefcdpeoyvjprorcgjcejzugkziotumgkryerhsegajaudeyvxllzgavcebhnwrvkdctylcyuzdiofpclcnhtqfllaezscgwpqripjairggrpmjwqsrmvmflikkqfhgfqoqvvqjpipwzykhjumwgwdnucvdbezndzhoynwbxrrrxcagfh
+        type: string
+        custom: []
+      telephone:
+        name: telephone
+        description: 'The value format is invalid. Must not be greater than 10 characters.'
+        required: false
+        example: c
+        type: string
+        custom: []
+      website:
+        name: website
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: yvnmeiyrmfeqtxwvgkzysbzipvdidzoarwhzfwptlvssobgivdqmqigzqhkjsbqkilfsgnoaoiscojpngjglcaqmgxoqyqchuaqqkozxdxoslnqmwyjazfwjifxmyvlmajrppugyhegzgjtfuzkcmf
+        type: string
+        custom: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+           "payload": {
+               "name": "Red Oid Traders",
+            "email": "jack@sparrow.ship",
+            "telephone": "0718879234",
+            "updated_at": "2022-05-16T06:12:19.000000Z",
+            "created_at": "2022-05-16T06:12:19.000000Z",
+            "id": 8
+               },
+               "message": "Created company"
+          }
+        headers: []
+        description: '200'
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 4
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/companies/{id}'
+    metadata:
+      title: 'Remove Company.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the company.'
+        required: true
+        example: 17
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+
+           "message": "Company deleted!"
+          }
+        headers: []
+        description: '200'
+      -
+        status: 404
+        content: |-
+          {
+
+           "message": "Company not found!"
+          }
+        headers: []
+        description: '404'
+    responseFields: []

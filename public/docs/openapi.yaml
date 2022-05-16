@@ -1,0 +1,427 @@
+openapi: 3.0.3
+info:
+  title: 'Sample Project'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://Sample-Project.test'
+paths:
+  /api/v1/register:
+    post:
+      summary: 'Register the user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\n \"user\": {\n     \"id\": 2,\n     \"name\": \"Jack Sparrow\",\n     \"email\": \"jack@sparrow.ship\",\n     \"email_verified_at\": null,\n     \"is_admin\": 0,\n      \"created_at\": \"2022-05-16T05:12:01.000000Z\",\n      \"updated_at\": \"2022-05-16T05:12:01.000000Z\"\n},\n \"token\": \"4|UuwRyt2CMfNkxdr44Y1wuORDzz70HhuFvblR67uC\",\n}"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'The full name of the  user.'
+                  example: 'Mike Tyson'
+                email:
+                  type: string
+                  description: 'The email of the  user.'
+                  example: testuser@example.com
+                password:
+                  type: string
+                  description: 'The password of the  user.'
+                  example: secret
+                password_confirmation:
+                  type: string
+                  description: 'The password confirmation of the  user.'
+                  example: secret
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/v1/login:
+    post:
+      summary: 'Log in the user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\n \"user\": {\n     \"id\": 2,\n     \"name\": \"Jack Sparrow\",\n     \"email\": \"jack@sparrow.ship\",\n     \"email_verified_at\": null,\n     \"is_admin\": 0,\n      \"created_at\": \"2022-05-16T05:12:01.000000Z\",\n      \"updated_at\": \"2022-05-16T05:12:01.000000Z\"\n},\n \"token\": \"4|UuwRyt2CMfNkxdr44Y1wuORDzz70HhuFvblR67uC\",\n}"
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'The email of the  user.'
+                  example: testuser@example.com
+                password:
+                  type: string
+                  description: 'The password of the  user.'
+                  example: secret
+              required:
+                - email
+                - password
+      security: []
+  /api/v1/profile:
+    get:
+      summary: 'Profile of the user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  payload:
+                    id: 2
+                    name: 'Jack Sparrow'
+                    email: jack@sparrow.ship
+                    email_verified_at: null
+                    is_admin: 0
+                    created_at: '2022-05-16T05:12:01.000000Z'
+                    updated_at: '2022-05-16T05:12:01.000000Z'
+                  message: 'Profile info'
+                properties:
+                  payload:
+                    type: object
+                    example:
+                      id: 2
+                      name: 'Jack Sparrow'
+                      email: jack@sparrow.ship
+                      email_verified_at: null
+                      is_admin: 0
+                      created_at: '2022-05-16T05:12:01.000000Z'
+                      updated_at: '2022-05-16T05:12:01.000000Z'
+                  message:
+                    type: string
+                    example: 'Profile info'
+      tags:
+        - Authentication
+      security: []
+  /api/v1/logout:
+    post:
+      summary: 'Logout the user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Logged Out'
+                properties:
+                  message:
+                    type: string
+                    example: 'Logged Out'
+      tags:
+        - Authentication
+      security: []
+  /api/v1/companies:
+    get:
+      summary: 'List of companies.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\n\n \"payload\": {\n     \"current_page\": 1,\n     \"data\": [\n         {\n             \"id\": 2,\n             \"name\": \"Thiel PLC\",\n             \"email\": \"larkin.shirley@yahoo.com\",\n             \"telephone\": \"(617) 886-4519\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http://www.koss.info/at-incidunt-consequatur-laboriosam\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 3,\n             \"name\": \"O'Keefe-Gerlach\",\n             \"email\": \"rosenbaum.danielle@deckow.com\",\n             \"telephone\": \"+13463833094\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"https://schowalter.info/minima-reprehenderit-perspiciatis-et-dolorem.html\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 4,\n             \"name\": \"Rutherford, Kozey and Daugherty\",\n             \"email\": \"kuhic.juanita@bruen.biz\",\n             \"telephone\": \"+1 (903) 845-4185\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http://www.reichel.com/aspernatur-accusamus-eligendi-consequatur-distinctio-vero-corrupti.html\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 5,\n             \"name\": \"Romaguera, Heidenreich and Quitzon\",\n             \"email\": \"genevieve.keeling@jerde.com\",\n             \"telephone\": \"+14324240878\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http://schulist.net/\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 6,\n             \"name\": \"Crona Group\",\n             \"email\": \"rosa74@dach.biz\",\n             \"telephone\": \"(714) 591-7737\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http://www.barrows.com/omnis-nostrum-tempora-velit-voluptatem-illo-at-ratione-quis.html\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         }\n     ],\n     \"first_page_url\": \"http://127.0.0.1:8000/api/v1/companies?page=1\",\n     \"from\": 1,\n     \"last_page\": 2,\n     \"last_page_url\": \"http://127.0.0.1:8000/api/v1/companies?page=2\",\n     \"links\": [\n         {\n             \"url\": null,\n             \"label\": \"&laquo; Previous\",\n             \"active\": false\n         },\n         {\n             \"url\": \"http://127.0.0.1:8000/api/v1/companies?page=1\",\n             \"label\": \"1\",\n             \"active\": true\n         },\n         {\n             \"url\": \"http://127.0.0.1:8000/api/v1/companies?page=2\",\n             \"label\": \"2\",\n             \"active\": false\n         },\n         {\n             \"url\": \"http://127.0.0.1:8000/api/v1/companies?page=2\",\n             \"label\": \"Next &raquo;\",\n             \"active\": false\n         }\n     ],\n     \"next_page_url\": \"http://127.0.0.1:8000/api/v1/companies?page=2\",\n     \"path\": \"http://127.0.0.1:8000/api/v1/companies\",\n     \"per_page\": 5,\n     \"prev_page_url\": null,\n     \"to\": 5,\n     \"total\": 6\n },\n \"message\": \"All Companies\"\n }\n}"
+      tags:
+        - Companies
+      security: []
+    post:
+      summary: 'Create Company.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  payload:
+                    name: 'Red Oid Traders'
+                    email: jack@sparrow.ship
+                    telephone: '0718879234'
+                    updated_at: '2022-05-16T06:12:19.000000Z'
+                    created_at: '2022-05-16T06:12:19.000000Z'
+                    id: 8
+                  message: 'Created company'
+                properties:
+                  payload:
+                    type: object
+                    example:
+                      name: 'Red Oid Traders'
+                      email: jack@sparrow.ship
+                      telephone: '0718879234'
+                      updated_at: '2022-05-16T06:12:19.000000Z'
+                      created_at: '2022-05-16T06:12:19.000000Z'
+                      id: 8
+                  message:
+                    type: string
+                    example: 'Created company'
+      tags:
+        - Companies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: est
+                email:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: uhrrumtwhymjtdlkqooxtkjuzdnddwirnujwhykjcregyefcdpeoyvjprorcgjcejzugkziotumgkryerhsegajaudeyvxllzgavcebhnwrvkdctylcyuzdiofpclcnhtqfllaezscgwpqripjairggrpmjwqsrmvmflikkqfhgfqoqvvqjpipwzykhjumwgwdnucvdbezndzhoynwbxrrrxcagfh
+                telephone:
+                  type: string
+                  description: 'The value format is invalid. Must not be greater than 10 characters.'
+                  example: c
+                website:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yvnmeiyrmfeqtxwvgkzysbzipvdidzoarwhzfwptlvssobgivdqmqigzqhkjsbqkilfsgnoaoiscojpngjglcaqmgxoqyqchuaqqkozxdxoslnqmwyjazfwjifxmyvlmajrppugyhegzgjtfuzkcmf
+              required:
+                - name
+      security: []
+  '/api/v1/companies/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Companies
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Companies
+      security: []
+    delete:
+      summary: 'Remove Company.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Company deleted!'
+                properties:
+                  message:
+                    type: string
+                    example: 'Company deleted!'
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Company not found!'
+                properties:
+                  message:
+                    type: string
+                    example: 'Company not found!'
+      tags:
+        - Companies
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the company.'
+        example: 4
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Authentication
+    description: "\nAPI endpoints for managing authentication"
+  -
+    name: Companies
+    description: "\nAPI endpoints for managing companies"
