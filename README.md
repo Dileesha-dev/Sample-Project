@@ -1,4 +1,4 @@
-# Sapme Project
+# Sample Project
 
 Author: Dileesha Nayanajth (github: Dileesha-dev)
 
