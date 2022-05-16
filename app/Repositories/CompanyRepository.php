@@ -12,7 +12,7 @@ class CompanyRepository{
         $request->validate([
             'logo' => 'image|mimes:jpeg,png,jpg|max:2048',
             'name' => 'required|string|max:255',
-            'email' => 'email|max:255|unique:users|nullable',
+            'email' => 'email|max:255|unique:companies,email|nullable',
             'telephone' => 'max:10|nullable|regex:/(0)[0-9]{9}/',
             'website' => 'max:255|nullable',
             'covers' => 'nullable|max:4',
