@@ -26,5 +26,9 @@ php artisan scribe:generate
 
 ### API Usage
 
+```
 Find docs @: localhost:port/docs
+```
+```
 For postman collection run: php artisan export:postman
+```
