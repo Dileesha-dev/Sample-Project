@@ -1,0 +1,394 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/Sample-Project.test"
+        }
+    ],
+    "info": {
+        "name": "Sample Project",
+        "_postman_id": "8bd2f423-61e5-4f89-8d9f-dfcfdde14692",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Authentication",
+            "description": "\nAPI endpoints for managing authentication",
+            "item": [
+                {
+                    "name": "Register the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"Mike Tyson\",\"email\":\"testuser@example.com\",\"password\":\"secret\",\"password_confirmation\":\"secret\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n \"user\": {\n     \"id\": 2,\n     \"name\": \"Jack Sparrow\",\n     \"email\": \"jack@sparrow.ship\",\n     \"email_verified_at\": null,\n     \"is_admin\": 0,\n      \"created_at\": \"2022-05-16T05:12:01.000000Z\",\n      \"updated_at\": \"2022-05-16T05:12:01.000000Z\"\n},\n \"token\": \"4|UuwRyt2CMfNkxdr44Y1wuORDzz70HhuFvblR67uC\",\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Log in the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"testuser@example.com\",\"password\":\"secret\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n \"user\": {\n     \"id\": 2,\n     \"name\": \"Jack Sparrow\",\n     \"email\": \"jack@sparrow.ship\",\n     \"email_verified_at\": null,\n     \"is_admin\": 0,\n      \"created_at\": \"2022-05-16T05:12:01.000000Z\",\n      \"updated_at\": \"2022-05-16T05:12:01.000000Z\"\n},\n \"token\": \"4|UuwRyt2CMfNkxdr44Y1wuORDzz70HhuFvblR67uC\",\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Profile of the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/profile",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/profile"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n \"payload\": {\n     \"id\": 2,\n     \"name\": \"Jack Sparrow\",\n     \"email\": \"jack@sparrow.ship\",\n     \"email_verified_at\": null,\n     \"is_admin\": 0,\n      \"created_at\": \"2022-05-16T05:12:01.000000Z\",\n      \"updated_at\": \"2022-05-16T05:12:01.000000Z\"\n     },\n     \"message\": \"Profile info\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Logout the user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n \"message\": \"Logged Out\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Companies",
+            "description": "\nAPI endpoints for managing companies",
+            "item": [
+                {
+                    "name": "List of companies.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n\n \"payload\": {\n     \"current_page\": 1,\n     \"data\": [\n         {\n             \"id\": 2,\n             \"name\": \"Thiel PLC\",\n             \"email\": \"larkin.shirley@yahoo.com\",\n             \"telephone\": \"(617) 886-4519\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http:\/\/www.koss.info\/at-incidunt-consequatur-laboriosam\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 3,\n             \"name\": \"O'Keefe-Gerlach\",\n             \"email\": \"rosenbaum.danielle@deckow.com\",\n             \"telephone\": \"+13463833094\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"https:\/\/schowalter.info\/minima-reprehenderit-perspiciatis-et-dolorem.html\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 4,\n             \"name\": \"Rutherford, Kozey and Daugherty\",\n             \"email\": \"kuhic.juanita@bruen.biz\",\n             \"telephone\": \"+1 (903) 845-4185\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http:\/\/www.reichel.com\/aspernatur-accusamus-eligendi-consequatur-distinctio-vero-corrupti.html\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 5,\n             \"name\": \"Romaguera, Heidenreich and Quitzon\",\n             \"email\": \"genevieve.keeling@jerde.com\",\n             \"telephone\": \"+14324240878\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http:\/\/schulist.net\/\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         },\n         {\n             \"id\": 6,\n             \"name\": \"Crona Group\",\n             \"email\": \"rosa74@dach.biz\",\n             \"telephone\": \"(714) 591-7737\",\n             \"logo_url\": null,\n             \"logo_path\": null,\n             \"logo_disk\": null,\n             \"website\": \"http:\/\/www.barrows.com\/omnis-nostrum-tempora-velit-voluptatem-illo-at-ratione-quis.html\",\n             \"created_at\": null,\n             \"updated_at\": null,\n             \"deleted_at\": null\n         }\n     ],\n     \"first_page_url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies?page=1\",\n     \"from\": 1,\n     \"last_page\": 2,\n     \"last_page_url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies?page=2\",\n     \"links\": [\n         {\n             \"url\": null,\n             \"label\": \"&laquo; Previous\",\n             \"active\": false\n         },\n         {\n             \"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies?page=1\",\n             \"label\": \"1\",\n             \"active\": true\n         },\n         {\n             \"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies?page=2\",\n             \"label\": \"2\",\n             \"active\": false\n         },\n         {\n             \"url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies?page=2\",\n             \"label\": \"Next &raquo;\",\n             \"active\": false\n         }\n     ],\n     \"next_page_url\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies?page=2\",\n     \"path\": \"http:\/\/127.0.0.1:8000\/api\/v1\/companies\",\n     \"per_page\": 5,\n     \"prev_page_url\": null,\n     \"to\": 5,\n     \"total\": 6\n },\n \"message\": \"All Companies\"\n }\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create Company.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"est\",\"email\":\"uhrrumtwhymjtdlkqooxtkjuzdnddwirnujwhykjcregyefcdpeoyvjprorcgjcejzugkziotumgkryerhsegajaudeyvxllzgavcebhnwrvkdctylcyuzdiofpclcnhtqfllaezscgwpqripjairggrpmjwqsrmvmflikkqfhgfqoqvvqjpipwzykhjumwgwdnucvdbezndzhoynwbxrrrxcagfh\",\"telephone\":\"c\",\"website\":\"yvnmeiyrmfeqtxwvgkzysbzipvdidzoarwhzfwptlvssobgivdqmqigzqhkjsbqkilfsgnoaoiscojpngjglcaqmgxoqyqchuaqqkozxdxoslnqmwyjazfwjifxmyvlmajrppugyhegzgjtfuzkcmf\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n \"payload\": {\n     \"name\": \"Red Oid Traders\",\n  \"email\": \"jack@sparrow.ship\",\n  \"telephone\": \"0718879234\",\n  \"updated_at\": \"2022-05-16T06:12:19.000000Z\",\n  \"created_at\": \"2022-05-16T06:12:19.000000Z\",\n  \"id\": 8\n     },\n     \"message\": \"Created company\"\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Display the specified resource.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "4",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Remove Company.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/companies\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/companies\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "17",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\n \"message\": \"Company deleted!\"\n}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\n\n \"message\": \"Company not found!\"\n}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

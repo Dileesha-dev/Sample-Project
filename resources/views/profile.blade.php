@@ -6,7 +6,7 @@
             </h2>
             <div>
                 <a class="nav-item" href="{{ route('company.index') }}">Companies</a>
-                <a class="nav-item">Employees</a>
+                <a class="nav-item" href="{{ route('employee.index') }}">Employees</a>
             </div>
         </div>
     </x-slot>
